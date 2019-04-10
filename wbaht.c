@@ -294,8 +294,8 @@ static void testQuery()
     }
 }
 
-char *copyright =   "BAHT(1.0) stable version. BAHT is tools which translate source code into high light html format.\n"
-                    "Copyright (C) HACKING,BOBI.  All rights reserved.\n\n"
+char *copyright =   "WBAHT(1.0) stable version. BAHT is tools which translate source code into high light html format.\n"
+                    "Copyright (C) HACKING,BOBI, TUO.  All rights reserved.\n\n"
                     "The program was written by Hacking and Bobi(HACKING AND BOBI HTML TOOLS).\n"
                     "Report bug or have a good ideal,please sent Email to maojun@whatsmath.cn.\n"
                     "This code under the ICU.996 LISENCE.\n"
@@ -303,9 +303,9 @@ char *copyright =   "BAHT(1.0) stable version. BAHT is tools which translate sou
                     
 
 char *useage = "usage : \n"
-                "        baht -l langtype -t tablesize -p templateHtml -f filename\n\n"
+                "        wbaht -l langtype -t tablesize -p templateHtml -f filename\n\n"
                 "eaxmple:\n"
-                "        baht -l C -t 4 -p token.html -f baht.c\n\n\n";
+                "        wbaht -l C -t 4 -p token.html -f baht.c\n\n\n";
 
 
 //
