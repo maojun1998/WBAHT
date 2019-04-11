@@ -84,7 +84,7 @@ def judgeTokenIsExist(tokenpath):
     foo.close()
 
 def generateLogFile(file_d, status):
-    foo = open("index.log", "w")
+    foo = open("index.log", "a")
     if status == 0:
         s = file_d + " has ended with converting, Nice!"
         print(s)
