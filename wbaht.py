@@ -1,5 +1,6 @@
 import os
 import sys
+import platform
 
 def solve(command, file_d):
     print(file_d, "start converting html..")
@@ -33,7 +34,11 @@ def generateIndexHtml(step, filepath):
             generateIndexHtml(step + 1, file_d)
 
 def openFile(step, filename):
-    write_file_name = filename + '\\index.html'
+    if (platform.system()=='Windows'):
+        write_file_name = filename + '\\index.html'
+    else :
+        write_file_name = filename + '/index.html'
+        
     fo = open(write_file_name, 'w')
     s =  '<html>\n'
     s += '   <head>\n'
