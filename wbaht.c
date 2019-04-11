@@ -25,9 +25,20 @@ TokenScan (
 	FILE *outHTML
 	);
 
-#define LANG_TYPE_C     (0)
-#define LANG_TYPE_CPP   (1)
-#define LANG_TYPE_JAVA  (2)
+#define LANG_TYPE_C         (0)
+#define LANG_TYPE_CPP       (1)
+#define LANG_TYPE_JAVA      (2)
+#define LANG_TYPE_PYTHON    (3)
+#define LANG_TYPE_CSHARP    (4)
+#define LANG_TYPE_ASM       (5)
+#define LANG_TYPE_SHELL     (6)
+#define LANG_TYPE_MAKEFILE  (7)
+#define LANG_TYPE_POWERSH   (8)
+#define LANG_TYPE_RUBY      (9)
+#define LANG_TYPE_HASKELL   (10)
+#define LANG_TYPE_LISP      (11)
+#define LANG_TYPE_USER      (12)
+#define LANG_TYPE_DEFAULT   (13)
 
 
 int lang_type = 0;
@@ -39,8 +50,8 @@ void token (
 	FILE *out,
 	FILE *inHTML,
 	FILE *outHTML,
-    int TABLE_SIZE,
-    int LANG_TYPE
+    	int TABLE_SIZE,
+    	int LANG_TYPE
 	);
 
 void tokeRelace (
@@ -159,14 +170,58 @@ static char *C_KEY_WORDS[] = {
 // for user costomer Key Words.
 //
 #ifdef USER_COUSTOMER_KEY_WORDS
-    "printf"
 #endif 
 };
+
+//
+// C++ key words
+//
 static char *CPP_KEY_WORDS[] = {
-    "auto",     "break",    "case",     "char",     "const",    "continue",     "default",  "do",
-    "double",   "else",     "enum",     "extern",   "float",    "for",          "goto",      "if",
-    "int",      "long",     "register", "return",   "short",    "signed",       "sizeof",   "static",
-    "struct",   "switch",   "typedef",  "union",    "unsigned", "void",         "volatile", "while",
+    "asm",      "do",           "if",       "return",       "typedef",
+    "auto",     "double",       "inline",   "short",        "typeid"
+    "bool",     "dynamic_cast", "int",      "signed",       "typename",
+    "break",    "else",         "long",     "sizeof",       "union",
+    "case",     "enum",         "mutable",  "static",       "unsigned",
+    "catch",    "explicit",     "namespace","static_cast",  "using",
+    "char",     "export",       "new",      "struct",       "virtual",
+    "class",    "extern",       "operator", "switch",       "void",
+    "const",    "false",        "private",  "template",     "volatile",
+    "const_cast","float",       "protected","this",         "wchar_t",
+    "continue", "for",          "public",   "throw",        "while",
+    "default",  "friend",       "register", "true",         "delete",
+    "goto",     "reinterpret_cast",    "try",
+    
+//
+// for C++11 extends.
+//
+#ifdef CPP11_KEY_DEFINE
+    "alignas",  "alignof", "char16_t", "char32_t", "constexpr", 
+    "decltype", "noexcept", "nullptr", "static_assert", "thread_local",
+#endif
+//
+// for MicroSolfWare C Compiler extends.
+//
+#ifdef MSC_EXTENDS_KEY_WORDS
+    "__asm",
+#endif 
+
+//
+// for LLVM Clang extends.
+// 
+#ifdef GNU_GCC_EXTENDS_KEY_WORDS
+#endif
+
+//
+// for GNU GCC extends.
+//
+#ifdef CLANG_CC_EXTENDS_KEY_WORDS
+#endif 
+
+//
+// for user costomer Key Words.
+//
+#ifdef USER_COUSTOMER_KEY_WORDS
+#endif 
 };
 //
 // JAVA_KEY_WORDS
@@ -1562,7 +1617,8 @@ void buildJs (
                         "        for (i = 1; i <= number; i++) {\n"
                         "            node = document.createElement(\"div\");\n"
                         "            node.innerHTML = i;\n"
-                        "            node.className = \"noBox\";\n"
+                        "            node.className = \"noBox\"; \n"
+			"	     node.id=i;\n"
                         "            numberBox.appendChild(node);\n"
                         "        }\n"
                         "    }\n"
