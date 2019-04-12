@@ -24,7 +24,7 @@ def folderTraversal(filepath, tab, template):
                 languange = 'CPP'
             else:
                 languange = 'C'
-            s = "baht -l " + languange + " -t " + tab + " -p " + template + " -f " + file_d
+            s = "wbaht -l " + languange + " -t " + tab + " -p " + template + " -f " + file_d
             solve(s, file_d)
 
 def generateIndexHtml(step, filepath):
