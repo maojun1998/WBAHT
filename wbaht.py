@@ -20,7 +20,7 @@ def folderTraversal(filepath, tab, template):
                 continue 
             if file_d.lower().endswith('java'):
                 languange = 'JAVA'
-            elif file_d.lower().endswith('cpp'):
+            elif file_d.lower().endswith('cpp') or file_d.lower().endswith('hpp') or file_d.lower().endswith('cxx'):
                 languange = 'CPP'
             else:
                 languange = 'C'
