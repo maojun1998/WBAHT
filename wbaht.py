@@ -45,6 +45,8 @@ def openFile(step, filename):
     basePathLen = len(basePath);
     
     productName = '/' + filename[basePathLen + 1:];
+    productName.replace('\\', '/');
+    
     fo = open(write_file_name, 'w')
     s =  '<html>\n'
     s += '   <head>\n'
